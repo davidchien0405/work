@@ -1396,7 +1396,25 @@ const recognitionLensOpen=document.getElementById('recognitionLensOpen');
 const recognitionLensShare=document.getElementById('recognitionLensShare');
 let recognitionBusy=false,recognitionPreviewUrl='',recognitionLastResults=[],recognitionSelectedFile=null;
 
-function openRecognition(){window.open('https://lens.google.com/','_blank','noopener')}
+/* 手機版 Google Lens 直達：
+   1. 不使用 window.open，避免 LINE／Safari／Chrome 手機版把新分頁視為彈出視窗而攔截。
+   2. 手機使用 Google 官方 Lens「Try Lens」行動連結，讓 Android / iPhone 優先交給 Google App；
+      若裝置無法直接開啟 App，Google 會依裝置提供可用的後續入口。
+   3. 桌機保留 Lens 官方網頁。 */
+const GOOGLE_LENS_WEB_URL='https://lens.google.com/';
+const GOOGLE_LENS_MOBILE_URL='https://search.app.goo.gl/?afl=market%3A%2F%2Fdetails%3Fid%3Dcom.google.android.googlequicksearchbox%26url%3Dhttps%3A%2F%2Fwww.google.com%2Fsearch%2Fabout%3Fsource%253Dsmp.2022lenssite.14%2526utm_medium%253Dsmp%2526utm_source%253Dsmp.2022lenssite.14%2526sop%253Dtrue&amv=301184624&apn=com.google.android.googlequicksearchbox&ct=p-pmm-web-Lensmktg-Lens&efr=1&ibi=com.google.GoogleMobile&isi=284815942&ius=googleapp&link=https%3A%2F%2Fwww.google.com%2Fsearch%2Fabout%3Fsource%3Dsmp.2022lenssite.14%26utm_medium%3Dsmp%26utm_source%3Dsmp.2022lenssite.14%26sop%3Dtrue&mt=8&pt=9008&source=smp.2022lenssite.14';
+function isMobileCatalogDevice(){
+  try{
+    if(typeof navigator.userAgentData?.mobile==='boolean')return navigator.userAgentData.mobile;
+  }catch(e){}
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'') || (navigator.maxTouchPoints>1 && /Macintosh/i.test(navigator.userAgent||''));
+}
+function openGoogleLensDirect(){
+  const url=isMobileCatalogDevice()?GOOGLE_LENS_MOBILE_URL:GOOGLE_LENS_WEB_URL;
+  // 同頁導向是手機瀏覽器最穩定的使用者觸發導頁方式，不會被 popup blocker 擋掉。
+  try{window.location.assign(url)}catch(e){window.location.href=url}
+}
+function openRecognition(){openGoogleLensDirect()}
 function closeRecognition(){if(recognitionBusy)return;recognitionModal.classList.remove('show');recognitionModal.setAttribute('aria-hidden','true')}
 recognitionOpen?.addEventListener('click',openRecognition);recognitionClose?.addEventListener('click',closeRecognition);
 recognitionModal?.addEventListener('click',e=>{if(e.target===recognitionModal)closeRecognition()});
@@ -1584,7 +1602,7 @@ function autoGoogleFallback(){
   recognitionFallback.classList.add('show');
   recognitionFallbackText.textContent='型錄內結果未達高可信度（低於 80%、出管幾何不一致，或第一名與第二名差距過小）。請先查看本頁辨識結果；若仍需要外部比對，再手動點選下方台灣／美國／歐洲 Google，或最下方的 Google 智慧辨識鏡頭。';
 }
-recognitionLensOpen?.addEventListener('click',()=>{window.open('https://lens.google.com/','_blank','noopener')});
+recognitionLensOpen?.addEventListener('click',openGoogleLensDirect);
 async function updateRecognitionLensShare(){
   if(!recognitionLensShare)return;
   const file=recognitionSelectedFile;
@@ -1598,7 +1616,7 @@ recognitionLensShare?.addEventListener('click',async()=>{
   try{
     await navigator.share({files:[file],title:'產品照片',text:'使用 Google 智慧鏡頭辨識這張產品照片'});
   }catch(e){
-    if(e?.name!=='AbortError')window.open('https://lens.google.com/','_blank','noopener');
+    if(e?.name!=='AbortError')openGoogleLensDirect();
   }
 });
 updateRecognitionLensShare();
@@ -1608,7 +1626,7 @@ recognitionResults?.addEventListener('click',e=>{const b=e.target.closest('[data
 recognitionStart?.addEventListener('click',e=>{
   e?.preventDefault?.();
   e?.stopPropagation?.();
-  window.open('https://lens.google.com/','_blank','noopener');
+  openGoogleLensDirect();
 });
 
 const editModal=document.getElementById('editModal'),editMsg=document.getElementById('editMsg');
