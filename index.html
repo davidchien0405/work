@@ -1073,7 +1073,7 @@ html.ios-device .size-menu{
     <button id="aHeroReset" class="hero-admin-ghost" type="button">恢復預設主圖</button>
   </div>
 </div>
-<div class="drive-hint">新增產品仍可使用上方表單；修改既有產品請按「啟用畫面直接編輯」，然後直接在型錄卡片上點選要編輯的那一筆，畫面會保持和前台相同的版型。點廠牌、產品名稱、備註可直接改字；點圖片可換本機照片；若要換遠端圖可按「貼上圖片連結」。每筆完成後按「儲存此項」，最後匯出完整 HTML 並覆蓋 GitHub 原檔。</div><div class="panel-buttons"><button id="aAdd" type="button">新增產品</button><button id="aEditMode" class="secondary" type="button">啟用畫面直接編輯</button><button id="aDeleteMode" class="secondary" type="button">啟用刪除模式</button><button id="aDriveFolder" class="secondary" type="button">開啟圖片資料夾</button><button id="aExport" class="secondary" type="button">匯出備份</button><button id="aExportHtml" type="button" disabled="">正在產生 HTML…</button><label class="file-label secondary">匯入備份<input id="aImport" type="file" accept="application/json,.json"></label><button id="aPassword" class="secondary" type="button">修改後台密碼</button><button id="aAdToggle" class="secondary" type="button">廣告：關閉（點此開啟）</button><button id="aClose" class="danger" type="button">關閉</button></div><div id="adminMsg" class="admin-msg">正在整理產品資料與首頁設定，請稍候…</div></div></div><div id="editModal" class="modal" aria-hidden="true"><div class="panel"><h2>編輯產品資料</h2><div class="sub">可修改廠牌、分類、產品名稱、備註、尺寸搜尋群組、圖檔名稱、Google Drive 連結，也可直接選擇本機圖片替換。</div><div class="form-grid"><label>車種／品牌<input id="eBrand" autocomplete="off"></label><label>分類<input id="eType" autocomplete="off"></label><label class="full">產品名稱<input id="eTitle" autocomplete="off"></label><label class="full">尺寸／備註<textarea id="eNote" placeholder="例如 440×690；若尺寸未確認，系統會自動顯示待確認×待確認"></textarea></label><label class="full">尺寸搜尋群組<select id="eSizeGroup"><option value="">依備註尺寸自動分類</option></select></label><label class="full">圖檔顯示文字<input id="eFile" autocomplete="off"></label><label class="full">Google Drive 檔案 ID 或完整連結<input id="eDrive" autocomplete="off" placeholder="可貼上新照片的 Drive 連結"></label><label class="full">或選擇本機圖片替換<input id="eImageFile" type="file" accept="image/*"></label><div class="full image-preview-box"><img id="ePreview" class="form-image-preview" alt="目前產品圖片"><span id="ePreviewText">目前沒有圖片</span></div></div><div class="panel-buttons"><button id="eSearchPhoto" class="secondary" type="button">重新搜尋產品照片</button><button id="eOpenDrive" class="secondary" type="button">開啟圖片資料夾</button><button id="eSave" type="button">儲存修改</button><button id="eCancel" class="danger" type="button">取消</button></div><div id="editMsg" class="admin-msg"></div></div></div><div id="toast" class="toast"></div>
+<div class="drive-hint">新增產品仍可使用上方表單；修改既有產品請按「啟用畫面直接編輯」，然後直接在型錄卡片上點選要編輯的那一筆，畫面會保持和前台相同的版型。點廠牌、產品名稱、備註可直接改字；點圖片可換本機照片；若要換遠端圖可按「貼上圖片連結」。每筆完成後按「儲存此項」，最後匯出完整 HTML 並覆蓋 GitHub 原檔。</div><div class="panel-buttons"><button id="aAdd" type="button">新增產品</button><button id="aEditMode" class="secondary" type="button">啟用畫面直接編輯</button><button id="aDeleteMode" class="secondary" type="button">啟用刪除模式</button><button id="aDriveFolder" class="secondary" type="button">開啟圖片資料夾</button><button id="aExport" class="secondary" type="button">匯出備份</button><button id="aExportHtml" type="button">匯出更新後完整 HTML</button><label class="file-label secondary">匯入備份<input id="aImport" type="file" accept="application/json,.json"></label><button id="aPassword" class="secondary" type="button">修改後台密碼</button><button id="aAdToggle" class="secondary" type="button">廣告：關閉（點此開啟）</button><button id="aClose" class="danger" type="button">關閉</button></div><div id="adminMsg" class="admin-msg"></div></div></div><div id="editModal" class="modal" aria-hidden="true"><div class="panel"><h2>編輯產品資料</h2><div class="sub">可修改廠牌、分類、產品名稱、備註、尺寸搜尋群組、圖檔名稱、Google Drive 連結，也可直接選擇本機圖片替換。</div><div class="form-grid"><label>車種／品牌<input id="eBrand" autocomplete="off"></label><label>分類<input id="eType" autocomplete="off"></label><label class="full">產品名稱<input id="eTitle" autocomplete="off"></label><label class="full">尺寸／備註<textarea id="eNote" placeholder="例如 440×690；若尺寸未確認，系統會自動顯示待確認×待確認"></textarea></label><label class="full">尺寸搜尋群組<select id="eSizeGroup"><option value="">依備註尺寸自動分類</option></select></label><label class="full">圖檔顯示文字<input id="eFile" autocomplete="off"></label><label class="full">Google Drive 檔案 ID 或完整連結<input id="eDrive" autocomplete="off" placeholder="可貼上新照片的 Drive 連結"></label><label class="full">或選擇本機圖片替換<input id="eImageFile" type="file" accept="image/*"></label><div class="full image-preview-box"><img id="ePreview" class="form-image-preview" alt="目前產品圖片"><span id="ePreviewText">目前沒有圖片</span></div></div><div class="panel-buttons"><button id="eSearchPhoto" class="secondary" type="button">重新搜尋產品照片</button><button id="eOpenDrive" class="secondary" type="button">開啟圖片資料夾</button><button id="eSave" type="button">儲存修改</button><button id="eCancel" class="danger" type="button">取消</button></div><div id="editMsg" class="admin-msg"></div></div></div><div id="toast" class="toast"></div>
 <div id="compareBar" class="compare-bar" aria-live="polite"><span id="compareCount" class="compare-count">已選 0 項</span><button id="compareOpen" class="compare-open" type="button" disabled="">比較選取</button><button id="compareClear" class="compare-clear" type="button">清除</button></div><div id="compareModal" class="compare-modal" aria-hidden="true"><div class="compare-panel"><div class="compare-head"><div class="compare-head-text"><h2>產品圖片比較</h2><div id="compareSub" class="compare-sub">並排查看產品圖片、名稱與備註差異</div></div><button id="compareClose" class="compare-close" type="button">關閉</button></div><div id="compareGrid" class="compare-grid"></div></div></div>
 
 <div id="recognitionModal" class="modal recognition-modal" aria-hidden="true"><div class="panel recognition-panel">
@@ -3600,6 +3600,17 @@ function buildExportHtml() {
         toastClone.classList.remove('show');
         toastClone.textContent = '';
     }
+    // 匯出中的畫面狀態不可寫進新版 HTML，否則下次開啟按鈕會永久停在 disabled / 正在產生 HTML。
+    const exportHtmlClone = clone.querySelector('#aExportHtml');
+    if (exportHtmlClone) {
+        exportHtmlClone.disabled = false;
+        exportHtmlClone.removeAttribute('disabled');
+        exportHtmlClone.textContent = '匯出更新後完整 HTML';
+    }
+    const adminMsgClone = clone.querySelector('#adminMsg');
+    if (adminMsgClone) {
+        adminMsgClone.textContent = '';
+    }
     const compareBarClone = clone.querySelector('#compareBar');
     if (compareBarClone)
         compareBarClone.classList.remove('show');
@@ -3654,49 +3665,62 @@ function buildExportHtml() {
     source = source.replace(buildPattern, `const EMBEDDED_BUILD_ID = '${buildId}';`);
     return source;
 }
+// 啟動時保險：若舊檔曾把匯出中的暫時狀態存進 HTML，立即恢復按鈕。
+(function resetExportHtmlButtonState(){
+    const btn = document.getElementById('aExportHtml');
+    if (btn) {
+        btn.disabled = false;
+        btn.removeAttribute('disabled');
+        btn.textContent = '匯出更新後完整 HTML';
+    }
+    const adminMsg = document.getElementById('adminMsg');
+    if (adminMsg && /正在整理產品資料|正在產生 HTML/.test(adminMsg.textContent || '')) {
+        adminMsg.textContent = '';
+    }
+})();
 document.getElementById('aExportHtml').onclick = function () {
     const btn = document.getElementById('aExportHtml');
-    const oldText = btn ? btn.textContent : '匯出更新後完整 HTML';
+    const oldText = '匯出更新後完整 HTML';
     if (btn) {
         btn.disabled = true;
         btn.textContent = '正在產生 HTML…';
     }
     msg('正在整理產品資料與首頁設定，請稍候…');
 
-    // 先讓瀏覽器更新畫面，再進行大型 HTML 產生工作，
-    // 避免使用者誤以為按鈕沒有反應。
-    setTimeout(function () {
-        try {
-            const source = buildExportHtml();
-            const blob = new Blob([source], { type: 'text/html;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'index.html';
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
+    // 下載動作直接保留在使用者點擊事件內執行。
+    // 尤其 iPhone / Safari 若經過 setTimeout 後再觸發 a.click()，可能失去使用者手勢授權而阻擋下載。
+    try {
+        const source = buildExportHtml();
+        const blob = new Blob([source], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'index.html';
+        a.rel = 'noopener';
+        a.style.position = 'fixed';
+        a.style.left = '-9999px';
+        document.body.appendChild(a);
+        a.click();
 
-            setTimeout(function () {
-                try { a.remove(); } catch (e) {}
-                try { URL.revokeObjectURL(url); } catch (e) {}
-            }, 3000);
+        setTimeout(function () {
+            try { a.remove(); } catch (e) {}
+            try { URL.revokeObjectURL(url); } catch (e) {}
+        }, 10000);
 
-            msg(`完整 HTML 已匯出，共 ${DATA.length.toLocaleString()} 筆產品。請用下載的 index.html 覆蓋 GitHub 原檔。`);
-            say('更新後完整 HTML 已下載');
+        msg(`完整 HTML 已匯出，共 ${DATA.length.toLocaleString()} 筆產品。請用下載的 index.html 覆蓋 GitHub 原檔。`);
+        say('更新後完整 HTML 已下載');
+    }
+    catch (err) {
+        console.error(err);
+        msg((err && err.message) ? err.message : '完整 HTML 匯出失敗。');
+        say('完整 HTML 匯出失敗');
+    }
+    finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = oldText;
         }
-        catch (err) {
-            console.error(err);
-            msg((err && err.message) ? err.message : '完整 HTML 匯出失敗。');
-            say('完整 HTML 匯出失敗');
-        }
-        finally {
-            if (btn) {
-                btn.disabled = false;
-                btn.textContent = oldText;
-            }
-        }
-    }, 80);
+    }
 };
 document.getElementById('aImport').onchange = async (e) => { const f = e.target.files[0]; if (!f)
     return; try {
